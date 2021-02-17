@@ -16,8 +16,7 @@ import java.sql.Date
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 
-class EventsAdapter (private val eventList: List<Event>,
-                     private val listener: OnItemClickListener
+class EventsAdapter (private val eventList: List<Event>
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
@@ -32,13 +31,14 @@ class EventsAdapter (private val eventList: List<Event>,
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val currentItem = eventList[position]
+        holder.bindView(eventList[position])
 
-        Glide.with(holder.imageView.context).load(currentItem.image).transition(withCrossFade())
-                .placeholder(R.drawable.ic_launcher_foreground).apply(RequestOptions.noAnimation())
-                .into(holder.imageView)
-        holder.textView1.text = currentItem.title
-        holder.textView2.text = getPrice(currentItem.price)
-        holder.textView3.text = getDateTime(currentItem.date)
+//        Glide.with(holder.imageView.context).load(currentItem.image).transition(withCrossFade())
+//                .placeholder(R.drawable.ic_launcher_foreground).apply(RequestOptions.noAnimation())
+//                .into(holder.imageView)
+//        holder.textView1.text = currentItem.title
+//        holder.textView2.text = getPrice(currentItem.price)
+//        holder.textView3.text = getDateTime(currentItem.date)
     }
 
     private fun getDateTime(s: Long): String? {
@@ -59,28 +59,18 @@ class EventsAdapter (private val eventList: List<Event>,
         return credits
     }
 
-    inner class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView),
-            View.OnClickListener {
-        val imageView : ImageView = itemView.event_image
-        val textView1: TextView = itemView.event_name
-        val textView2: TextView = itemView.event_price
-        val textView3: TextView = itemView.event_date
+    class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val image : ImageView = itemView.event_image
+        val title: TextView = itemView.event_name
+        val price: TextView = itemView.event_price
+        val date: TextView = itemView.event_date
+        val description: TextView = itemView.event_price
 
+        fun bindView(event: Event){
+            title.text = event.title
+            description.text = event.description
 
-        init {
-            itemView.setOnClickListener(this)
         }
-
-        override fun onClick(p0: View?) {
-            val position: Int = adapterPosition
-            if (position != RecyclerView.NO_POSITION) {
-                listener.onItemClick(position)
-            }
-        }
-    }
-
-    interface OnItemClickListener {
-        fun onItemClick(position: Int)
 
     }
 }
