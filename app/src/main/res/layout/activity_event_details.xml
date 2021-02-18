@@ -121,24 +121,11 @@
 
             </LinearLayout>
 
-            <Button
-                style="@style/Widget.AppCompat.Button"
-                android:id="@+id/checkin_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:insetTop="6dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:text="Faça seu Check-in"
-                android:layout_marginBottom="20dp"
-                app:elevation="2dp" />
-
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:onClick="shareButton"
+        android:id="@+id/shareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="25dp"
@@ -147,4 +134,19 @@
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|end|right"
         app:maxImageSize="28dp"/>
+
+    <com.google.android.material.card.MaterialCardView
+        style="@style/Widget.MaterialComponents.BottomSheet.Modal"
+        android:id="@+id/bottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:behavior_peekHeight="86dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:cardBackgroundColor="#eee"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="8dp">
+
+        <include layout="@layout/bottom_sheet_checkin"/>
+
+    </com.google.android.material.card.MaterialCardView>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

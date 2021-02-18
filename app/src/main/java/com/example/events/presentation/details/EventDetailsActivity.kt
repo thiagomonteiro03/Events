@@ -4,19 +4,40 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.example.events.data.API.FormatData
 import com.example.events.R
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.activity_event_details.*
+import kotlinx.android.synthetic.main.bottom_sheet_checkin.*
 
 class EventDetailsActivity : AppCompatActivity() {
+    private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_details)
         setSupportActionBar(toolbar_layout)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+        bottomSheetBehavior.isHideable = false
+
+        send_button.setOnClickListener {
+            Toast.makeText(this, "mensagem enviada", Toast.LENGTH_SHORT).show()
+
+        }
+
+        shareButton.setOnClickListener{
+            val shareIntent = Intent().apply {
+                this.action = Intent.ACTION_SEND
+                this.putExtra(Intent.EXTRA_TEXT,intent.getStringExtra("eventDescription").toString() )
+                this.type = "text/plain"
+            }
+            startActivity(shareIntent)
+        }
 
         dateEvent.text = FormatData.getDateTime(intent.getLongExtra(EXTRA_DATE, 2))
         descEvent.text = intent.getStringExtra(EXTRA_DESCRIPTION)
