@@ -8,6 +8,7 @@
 
     <!-- App -->
     <string name="app_name">Events</string>
+    <string name="att_google_play">Por favor, atualize o Google Play Services.</string>
 
     <!-- Bottom Sheet Check-in -->
     <string name="check_in_title">Faça o Check-in!</string>
