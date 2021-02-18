@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,7 +9,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:padding="@dimen/high_margin"
         android:text="@string/check_in_title"
         android:textAlignment="center"
         android:background="@color/teal_700"
@@ -19,30 +17,35 @@
         android:textSize="26sp"
         android:textStyle="bold"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/high_margin">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="@dimen/high_margin"
         android:text="@string/name_title"
         android:textColor="@color/teal_700"
-        android:layout_marginLeft="40dp"/>
+        android:layout_marginStart="@dimen/high_margin"/>
 
     <EditText
         android:id="@+id/name_send"
-        android:layout_width="250dp"
+        android:layout_width="@dimen/name_size"
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:singleLine="true"
-        android:hint="@string/name_hint"
-        android:layout_marginLeft="20dp"/>
+        android:hint="@string/name_hint"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/high_margin"
         android:text="@string/email_title"
         android:textColor="@color/teal_700"
-        android:layout_marginLeft="40dp"/>
+        android:layout_marginStart="@dimen/high_margin"/>
 
     <EditText
         android:id="@+id/email_send"
@@ -50,26 +53,26 @@
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:singleLine="true"
-        android:hint="@string/email_hint"
-        android:layout_marginLeft="20dp"/>
+        android:hint="@string/email_hint"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp">
+        android:layout_marginTop="@dimen/high_margin"
+        android:layout_marginBottom="@dimen/high_margin">
 
     <Button
         android:id="@+id/send_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/high_margin"
         android:text="@string/button_send_title"
-        android:backgroundTint="@color/teal_700"
-        android:layout_marginRight="20dp"/>
+        android:backgroundTint="@color/teal_700"/>
 
     </RelativeLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

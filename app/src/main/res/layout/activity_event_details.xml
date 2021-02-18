@@ -2,7 +2,6 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,7 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="@dimen/appbar_height"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark">
 
@@ -21,8 +20,8 @@
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             app:contentScrim="@color/teal_700"
-            app:expandedTitleMarginBottom="20dp"
-            app:expandedTitleMarginStart="15dp"
+            app:expandedTitleMarginBottom="@dimen/high_margin"
+            app:expandedTitleMarginStart="@dimen/high_margin"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <ImageView
@@ -36,7 +35,7 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="@dimen/drawable_view_height"
                 android:layout_gravity="bottom"
                 android:background="@drawable/title_background"/>
 
@@ -44,8 +43,6 @@
                 android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                app:contentInsetStart="0dp"
-                app:contentInsetStartWithNavigation="0dp"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light"/>
 
@@ -69,13 +66,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="15dp">
+                android:padding="@dimen/high_margin">
 
                 <TextView
                     android:id="@+id/dateEvent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="@dimen/high_margin"
                     android:drawableLeft="@drawable/ic_baseline_calendar_today_24"
                     android:text="@string/date_label"
                     android:textColor="@color/black"
@@ -86,8 +83,8 @@
                     android:id="@+id/titleEvent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="@dimen/low_margin"
+                    android:layout_marginLeft="@dimen/high_margin"
                     android:text="@string/title_label"
                     android:textColor="@color/teal_700"
                     android:textSize="24sp"
@@ -97,8 +94,8 @@
                     android:id="@+id/priceEvent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="@dimen/low_margin"
+                    android:layout_marginLeft="@dimen/high_margin"
                     android:text="@string/price_label"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -108,7 +105,7 @@
                     android:id="@+id/descEvent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="20dp"
+                    android:layout_margin="@dimen/high_margin"
                     android:text="@string/desc_label"
                     android:textAlignment="gravity"
                     android:textColor="@color/black" />
@@ -119,8 +116,8 @@
                 android:id="@+id/map"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_marginBottom="100dp"/>
+                android:layout_height="@dimen/map_height"
+                android:layout_marginBottom="@dimen/map_margin"/>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
@@ -129,23 +126,21 @@
         android:id="@+id/shareButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="25dp"
+        android:layout_marginEnd="@dimen/icon_margin"
         android:src="@drawable/ic_baseline_share_24"
         android:tint="@color/white"
         app:layout_anchor="@id/app_bar_layout"
         app:layout_anchorGravity="bottom|end|right"
-        app:maxImageSize="28dp"/>
+        app:maxImageSize="@dimen/image_icon_size"/>
 
     <com.google.android.material.card.MaterialCardView
         style="@style/Widget.MaterialComponents.BottomSheet.Modal"
         android:id="@+id/bottomSheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:behavior_peekHeight="86dp"
+        app:behavior_peekHeight="@dimen/peek_height"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        app:cardBackgroundColor="#eee"
-        app:cardCornerRadius="0dp"
-        app:cardElevation="8dp">
+        app:cardElevation="@dimen/low_margin">
 
         <include layout="@layout/bottom_sheet_checkin"/>
 

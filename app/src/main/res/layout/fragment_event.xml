@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment"
     android:layout_width="match_parent"
-    android:layout_height="240dp"
-    android:layout_marginTop = "10dp"
-    android:layout_marginLeft="8dp"
-    android:layout_marginRight="8dp"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="4dp"
-    app:cardMaxElevation="3dp"
+    android:layout_height="@dimen/layout_fragment_height"
+    android:layout_marginTop = "@dimen/low_margin"
+    android:layout_marginLeft="@dimen/low_margin"
+    android:layout_marginRight="@dimen/low_margin"
+    app:cardCornerRadius="@dimen/corner_radius_size"
+    app:cardElevation="@dimen/elevation_size"
+    app:cardMaxElevation="@dimen/max_elevation_size"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="false">
 
@@ -29,7 +29,7 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="110dp"
+            android:layout_height="@dimen/text_cardview_height"
             android:orientation="vertical"
             android:layout_alignParentBottom="true"
             android:background="@color/colorDarkSemiTransparent"
@@ -39,7 +39,7 @@
                 android:id="@+id/event_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_margin="@dimen/low_margin"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp"
                 android:text="@string/title_label"/>
@@ -49,7 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:padding="10dp"
+                android:padding="@dimen/low_margin"
                 android:textColor="#FFFFFF"
                 android:text="@string/date_label" />
 
@@ -61,7 +61,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:textColor="#FFFFFF"
-                android:padding="10dp"
+                android:padding="@dimen/low_margin"
                 android:text="@string/price_label" />
         </RelativeLayout>
     </RelativeLayout>

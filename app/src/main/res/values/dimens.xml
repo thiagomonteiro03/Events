@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- App layout -->
+    <dimen name="high_margin">16dp</dimen>
+    <dimen name="low_margin">8dp</dimen>
+
+    <!-- Event Details layout -->
+    <dimen name="appbar_height">300dp</dimen>
+    <dimen name="drawable_view_height">100dp</dimen>
+    <dimen name="icon_margin">25dp</dimen>
+    <dimen name="image_icon_size">28dp</dimen>
+    <dimen name="map_margin">100dp</dimen>
+    <dimen name="map_height">300dp</dimen>
+    <dimen name="peek_height">86dp</dimen>
+
+    <!-- Check-in layout -->
+    <dimen name="name_size">250dp</dimen>
+
+    <!-- Fragment Event layout -->
+    <dimen name="layout_fragment_height">240dp</dimen>
+    <dimen name="text_cardview_height">110dp</dimen>
+    <dimen name="corner_radius_size">5dp</dimen>
+    <dimen name="elevation_size">4dp</dimen>
+    <dimen name="max_elevation_size">3dp</dimen>
+
+</resources>
