@@ -5,14 +5,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
-import com.example.events.data.API.FormatData
+import com.example.events.data.API.GET.FormatData
 import com.example.events.R
-import com.example.events.data.API.CheckinApiService
+import com.example.events.data.API.POST.CheckinApiService
 import com.example.events.data.model.Checkin
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap

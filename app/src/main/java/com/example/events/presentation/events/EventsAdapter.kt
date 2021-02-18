@@ -10,12 +10,9 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.bumptech.glide.request.RequestOptions
 import com.example.events.R
-import com.example.events.data.API.FormatData
+import com.example.events.data.API.GET.FormatData
 import com.example.events.data.model.Event
 import kotlinx.android.synthetic.main.fragment_event.view.*
-import java.sql.Date
-import java.text.DecimalFormat
-import java.text.SimpleDateFormat
 
 class EventsAdapter (private val eventList: List<Event>,
                      val onItemClickListener: ((event: Event) -> Unit)

@@ -1,6 +1,5 @@
-package com.example.events.data.API
+package com.example.events.data.API.POST
 
-import com.example.events.data.model.Checkin
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

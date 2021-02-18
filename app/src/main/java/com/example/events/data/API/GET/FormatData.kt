@@ -1,4 +1,4 @@
-package com.example.events.data.API
+package com.example.events.data.API.GET
 
 
 import java.sql.Date

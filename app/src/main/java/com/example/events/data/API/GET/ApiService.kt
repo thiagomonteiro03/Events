@@ -1,9 +1,9 @@
-package com.example.events.data.API
+package com.example.events.data.API.GET
 
+import com.example.events.data.API.EvtService
 import com.example.events.data.model.Checkin
 import com.example.events.data.model.Event
 import retrofit2.Call
-import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
