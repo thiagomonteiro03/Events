@@ -11,17 +11,31 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.example.events.data.API.FormatData
 import com.example.events.R
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import kotlinx.android.synthetic.main.activity_event_details.*
 import kotlinx.android.synthetic.main.bottom_sheet_checkin.*
 
-class EventDetailsActivity : AppCompatActivity() {
+class EventDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
+
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<View>
+    private lateinit var mMap: GoogleMap
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_details)
         setSupportActionBar(toolbar_layout)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        val mapFragment = supportFragmentManager
+            .findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.isHideable = false
 
@@ -33,7 +47,7 @@ class EventDetailsActivity : AppCompatActivity() {
         shareButton.setOnClickListener{
             val shareIntent = Intent().apply {
                 this.action = Intent.ACTION_SEND
-                this.putExtra(Intent.EXTRA_TEXT,intent.getStringExtra("eventDescription").toString() )
+                this.putExtra(Intent.EXTRA_TEXT,intent.getStringExtra(EXTRA_DESCRIPTION).toString())
                 this.type = "text/plain"
             }
             startActivity(shareIntent)
@@ -72,5 +86,14 @@ class EventDetailsActivity : AppCompatActivity() {
                 putExtra(EXTRA_ID, id)
             }
         }
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
+        val eventLocalAPI = LatLng(intent.getDoubleExtra(EXTRA_LATITUDE, 2.0), intent.getDoubleExtra(EXTRA_LONGITUDE, 2.0))
+        mMap.addMarker(MarkerOptions().position(eventLocalAPI).title("Marker"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(eventLocalAPI))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(eventLocalAPI, 18F))
+
     }
 }

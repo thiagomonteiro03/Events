@@ -31,6 +31,8 @@
         android:id="@+id/name_send"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:singleLine="true"
         android:hint="Digite seu nome"
         android:layout_marginLeft="20dp"/>
 
@@ -46,6 +48,8 @@
         android:id="@+id/email_send"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxLines="1"
+        android:singleLine="true"
         android:hint="Digite seu email para contato"
         android:layout_marginLeft="20dp"/>
 
@@ -61,6 +65,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
         android:text="Enviar"
         android:backgroundTint="@color/teal_700"
         android:layout_marginRight="20dp"/>

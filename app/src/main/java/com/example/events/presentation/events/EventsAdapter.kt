@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import com.bumptech.glide.request.RequestOptions
 import com.example.events.R
+import com.example.events.data.API.FormatData
 import com.example.events.data.model.Event
 import kotlinx.android.synthetic.main.fragment_event.view.*
 import java.sql.Date
@@ -37,26 +38,8 @@ class EventsAdapter (private val eventList: List<Event>,
         Glide.with(holder.image.context).load(currentItem.image).transition(withCrossFade())
                 .placeholder(R.drawable.ic_launcher_foreground).apply(RequestOptions.noAnimation())
                 .into(holder.image)
-        holder.price.text = getPrice(currentItem.price)
-        holder.date.text = getDateTime(currentItem.date)
-    }
-
-    private fun getDateTime(s: Long): String? {
-        try {
-            val sdf = SimpleDateFormat("dd/MM/yyyy")
-            val netDate = Date(1000 * s)
-            return sdf.format(netDate)
-        } catch (e: Exception) {
-            return e.toString()
-        }
-    }
-
-    private fun getPrice(p: Double): String {
-        val dec = DecimalFormat("#,###.00")
-        var credits = "R$ " + dec.format(p)
-        credits = credits.replace(".", ",")
-
-        return credits
+        holder.price.text = FormatData.getPrice(currentItem.price)
+        holder.date.text = FormatData.getDateTime(currentItem.date)
     }
 
     class EventViewHolder(itemView: View, val onItemClickListener: ((event: Event) -> Unit)) : RecyclerView.ViewHolder(itemView) {
