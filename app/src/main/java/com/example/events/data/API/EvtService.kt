@@ -13,7 +13,7 @@ interface EvtService {
     suspend fun getEventList() : Response<List<Event>>
 
     @Headers("Content-Type: application/json")
-    @POST("checkin")
+    @POST("checkin/")
     fun addCheckin(@Body userSend : Checkin) : Call<Checkin>
 
 }

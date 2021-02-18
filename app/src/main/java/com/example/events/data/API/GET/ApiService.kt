@@ -18,7 +18,6 @@ object ApiService {
         .create(EvtService::class.java)
 
     suspend fun getEvents() : Response<List<Event>> = api.getEventList()
-    fun addUser(send: Checkin) : Call<Checkin> = api.addCheckin(send)
 
 
 }
