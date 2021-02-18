@@ -24,7 +24,8 @@ class EventsActivity : AppCompatActivity() {
                     layoutManager = LinearLayoutManager(this@EventsActivity, RecyclerView.VERTICAL, false)
                     setHasFixedSize(true)
                     adapter = EventsAdapter(events) { event ->
-                            val intent = EventDetailsActivity.getStartIntent(this@EventsActivity, event.title, event.description)
+                            val intent = EventDetailsActivity.getStartIntent(this@EventsActivity, event.date, event.description,
+                                event.image, event.longitude, event.latitude, event.price, event.title, event.id)
                             this@EventsActivity.startActivity(intent)
                     }
                 }

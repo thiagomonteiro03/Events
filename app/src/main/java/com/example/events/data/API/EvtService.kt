@@ -1,4 +1,4 @@
-package com.example.events.data
+package com.example.events.data.API
 
 import com.example.events.data.model.Checkin
 import com.example.events.data.model.Event

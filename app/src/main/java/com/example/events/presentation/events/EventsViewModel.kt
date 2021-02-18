@@ -2,8 +2,7 @@ package com.example.events.presentation.events
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.example.events.data.ApiService
+import com.example.events.data.API.ApiService
 import com.example.events.data.model.Event
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

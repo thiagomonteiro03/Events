@@ -26,7 +26,7 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <ImageView
-                android:id="@+id/event_image"
+                android:id="@+id/imageEvent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:contentDescription="@string/app_name"
@@ -72,7 +72,7 @@
                 android:padding="15dp">
 
                 <TextView
-                    android:id="@+id/event_date"
+                    android:id="@+id/dateEvent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -94,7 +94,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/event_price"
+                    android:id="@+id/priceEvent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -105,7 +105,7 @@
                     android:textStyle="bold"/>
 
                 <TextView
-                    android:id="@+id/event_desc"
+                    android:id="@+id/descEvent"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="20dp"
