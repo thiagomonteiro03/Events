@@ -6,11 +6,17 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.events.R
+import kotlinx.android.synthetic.main.activity_event_details.*
+import kotlinx.android.synthetic.main.fragment_event.*
+import kotlinx.android.synthetic.main.fragment_event.event_name
 
 class EventDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_event_details)
+
+        titleEvent.text = intent.getStringExtra(EXTRA_TITLE)
+        event_desc.text = intent.getStringExtra(EXTRA_DESCRIPTION)
     }
 
     companion object {

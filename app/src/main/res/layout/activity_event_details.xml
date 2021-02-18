@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.EventActivity">
+    tools:context=".presentation.details.EventDetailsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -83,7 +83,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/event_name"
+                    android:id="@+id/titleEvent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -112,12 +112,12 @@
                     android:text="O Patas Dadas estará na Redenção, nesse domingo, com cães para adoção e produtos à venda! Na ocasião, teremos bottons, bloquinhos e camisetas! Traga seu Pet, os amigos e o chima, e venha aproveitar esse dia de sol com a gente e com alguns de nossos peludinhos - que estarão prontinhos para ganhar o ♥ de um humano bem legal pra chamar de seu. Aceitaremos todos os tipos de doação: - guias e coleiras em bom estado - ração (as que mais precisamos no momento são sênior e filhote) - roupinhas - cobertas - remédios dentro do prazo de validade"
                     android:textAlignment="gravity"
                     android:textColor="@color/black" />
-                <fragment
-                    android:id="@+id/map"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
-                    android:layout_margin="20dp" />
+<!--                <fragment-->
+<!--                    android:id="@+id/map"-->
+<!--                    android:name="com.google.android.gms.maps.SupportMapFragment"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="300dp"-->
+<!--                    android:layout_margin="20dp" />-->
 
             </LinearLayout>
 

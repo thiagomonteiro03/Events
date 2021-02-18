@@ -26,7 +26,7 @@ class EventsAdapter (private val eventList: List<Event>,
                 parent,
                 false
         )
-        return EventViewHolder(itemView)
+        return EventViewHolder(itemView, onItemClickListener)
     }
 
     override fun getItemCount() = eventList.count()
@@ -60,7 +60,7 @@ class EventsAdapter (private val eventList: List<Event>,
         return credits
     }
 
-    class EventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class EventViewHolder(itemView: View, val onItemClickListener: ((event: Event) -> Unit)) : RecyclerView.ViewHolder(itemView) {
         val image : ImageView = itemView.event_image
         val title: TextView = itemView.event_name
         val price: TextView = itemView.event_price
@@ -70,6 +70,10 @@ class EventsAdapter (private val eventList: List<Event>,
         fun bindView(event: Event){
             title.text = event.title
             description.text = event.description
+
+            itemView.setOnClickListener {
+                onItemClickListener.invoke(event)
+            }
 
         }
 
