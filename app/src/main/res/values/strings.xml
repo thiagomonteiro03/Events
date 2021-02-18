@@ -18,6 +18,7 @@
     <string name="button_send_title">Enviar</string>
 
     <!-- EventDetailsActivity -->
-    <string name="send_button_message">Check-in realizado com sucesso.</string>
+    <string name="check_in_sent_message">Check-in realizado com sucesso.</string>
+    <string name="check_in_error_message">Erro ao efetuar o envio.</string>
 
 </resources>

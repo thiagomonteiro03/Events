@@ -5,12 +5,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.example.events.data.API.FormatData
 import com.example.events.R
+import com.example.events.data.API.CheckinApiService
+import com.example.events.data.model.Checkin
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -40,9 +43,20 @@ class EventDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
         bottomSheetBehavior.isHideable = false
 
         send_button.setOnClickListener {
-            Toast.makeText(this, getString(R.string.send_button_message), Toast.LENGTH_SHORT).show()
-            bottomSheetBehavior.isHideable = true
-            bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+            val sendService = CheckinApiService()
+            val userInfo = Checkin(  eventId = intent.getIntExtra(EXTRA_ID,1),
+                name = name_send.text.toString(),
+                email = email_send.text.toString())
+
+            sendService.addUser(userInfo) {
+                if (it?.eventId != null) {
+                    Toast.makeText(this, R.string.check_in_sent_message,Toast.LENGTH_SHORT).show()
+                    bottomSheetBehavior.isHideable = true
+                    bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+                } else {
+                    Toast.makeText(this, R.string.check_in_error_message,Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         shareButton.setOnClickListener{
