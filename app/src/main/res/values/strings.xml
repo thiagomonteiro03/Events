@@ -1,3 +1,23 @@
 <resources>
+
+    <!-- Event Label -->
+    <string name="title_label">Texto 1</string>
+    <string name="price_label">R$ 00,00</string>
+    <string name="date_label">01/01/2001 00:00</string>
+    <string name="desc_label">Texto 2</string>
+
+    <!-- App -->
     <string name="app_name">Events</string>
+
+    <!-- Bottom Sheet Check-in -->
+    <string name="check_in_title">Faça o Check-in!</string>
+    <string name="name_title">Nome</string>
+    <string name="name_hint">Digite seu nome</string>
+    <string name="email_title">E-mail</string>
+    <string name="email_hint">Digite seu email para contato</string>
+    <string name="button_send_title">Enviar</string>
+
+    <!-- EventDetailsActivity -->
+    <string name="send_button_message">Check-in realizado com sucesso.</string>
+
 </resources>

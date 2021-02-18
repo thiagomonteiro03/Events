@@ -40,14 +40,15 @@ class EventDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
         bottomSheetBehavior.isHideable = false
 
         send_button.setOnClickListener {
-            Toast.makeText(this, "mensagem enviada", Toast.LENGTH_SHORT).show()
-
+            Toast.makeText(this, getString(R.string.send_button_message), Toast.LENGTH_SHORT).show()
+            bottomSheetBehavior.isHideable = true
+            bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         }
 
         shareButton.setOnClickListener{
             val shareIntent = Intent().apply {
                 this.action = Intent.ACTION_SEND
-                this.putExtra(Intent.EXTRA_TEXT,intent.getStringExtra(EXTRA_DESCRIPTION).toString())
+                this.putExtra(Intent.EXTRA_TEXT,intent.getStringExtra(EXTRA_DESCRIPTION).toString() )
                 this.type = "text/plain"
             }
             startActivity(shareIntent)

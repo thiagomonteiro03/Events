@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frament"
+    android:id="@+id/fragment"
     android:layout_width="match_parent"
     android:layout_height="240dp"
     android:layout_marginTop = "10dp"
@@ -42,7 +42,7 @@
                 android:layout_margin="10dp"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp"
-                android:text="Feira de adoção de animais na Redenção"/>
+                android:text="@string/title_label"/>
 
             <TextView
                 android:id="@+id/event_date"
@@ -51,7 +51,7 @@
                 android:layout_alignParentBottom="true"
                 android:padding="10dp"
                 android:textColor="#FFFFFF"
-                android:text="01/01/2001" />
+                android:text="@string/date_label" />
 
             <TextView
                 android:id="@+id/event_price"
@@ -62,7 +62,7 @@
                 android:layout_alignParentBottom="true"
                 android:textColor="#FFFFFF"
                 android:padding="10dp"
-                android:text="R$ 29.99" />
+                android:text="@string/price_label" />
         </RelativeLayout>
     </RelativeLayout>
 
