@@ -22,21 +22,12 @@ class EventsActivity : AppCompatActivity() {
                 with(recyclerBooks){
                     layoutManager = LinearLayoutManager(this@EventsActivity, RecyclerView.VERTICAL, false)
                     setHasFixedSize(true)
-                    adapter = EventsAdapter(getEvents())
+                    adapter = EventsAdapter(events)
                 }
             }
         })
 
         viewModel.getEvents()
 
-    }
-
-    fun getEvents(): List<Event>{
-        return listOf(
-            Event(2, "sei la 1", "olhai"),
-            Event(2, "sei la 2", "olhai2"),
-            Event(2, "sei la 3", "olhai3"),
-            Event(2, "sei la 4", "olhai4")
-        )
     }
 }

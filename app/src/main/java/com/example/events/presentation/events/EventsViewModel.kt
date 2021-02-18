@@ -2,23 +2,28 @@ package com.example.events.presentation.events
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.events.data.ApiService
 import com.example.events.data.model.Event
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class EventsViewModel : ViewModel() {
-
     val eventsLiveData: MutableLiveData<List<Event>> = MutableLiveData()
 
     fun getEvents() {
-        eventsLiveData.value = createFakeEvents()
-    }
+        CoroutineScope(Dispatchers.Main).launch{
+            val response = ApiService.getEvents()
 
-    fun createFakeEvents(): List<Event>{
-        return listOf(
-            Event(2, "sei la 1", "olhai"),
-            Event(2, "sei la 2", "olhai2"),
-            Event(2, "sei la 3", "olhai3"),
-            Event(2, "sei la 4", "olhai4")
-        )
+            if (response.isSuccessful) {
+                withContext(Dispatchers.Main) {
+                    eventsLiveData.value = response.body()
+                }
+            }
+
+        }
     }
 
 }

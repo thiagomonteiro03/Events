@@ -33,12 +33,11 @@ class EventsAdapter (private val eventList: List<Event>
         val currentItem = eventList[position]
         holder.bindView(eventList[position])
 
-//        Glide.with(holder.imageView.context).load(currentItem.image).transition(withCrossFade())
-//                .placeholder(R.drawable.ic_launcher_foreground).apply(RequestOptions.noAnimation())
-//                .into(holder.imageView)
-//        holder.textView1.text = currentItem.title
-//        holder.textView2.text = getPrice(currentItem.price)
-//        holder.textView3.text = getDateTime(currentItem.date)
+        Glide.with(holder.image.context).load(currentItem.image).transition(withCrossFade())
+                .placeholder(R.drawable.ic_launcher_foreground).apply(RequestOptions.noAnimation())
+                .into(holder.image)
+        holder.price.text = getPrice(currentItem.price)
+        holder.date.text = getDateTime(currentItem.date)
     }
 
     private fun getDateTime(s: Long): String? {
