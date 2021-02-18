@@ -3,6 +3,7 @@ package com.example.events.presentation.events
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +17,8 @@ import java.sql.Date
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 
-class EventsAdapter (private val eventList: List<Event>
+class EventsAdapter (private val eventList: List<Event>,
+                     val onItemClickListener: ((event: Event) -> Unit)
 ) : RecyclerView.Adapter<EventsAdapter.EventViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(

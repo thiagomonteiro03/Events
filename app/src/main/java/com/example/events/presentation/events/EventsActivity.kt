@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.events.R
 import com.example.events.data.model.Event
+import com.example.events.presentation.details.EventDetailsActivity
 import kotlinx.android.synthetic.main.activity_events.*
 
 class EventsActivity : AppCompatActivity() {
@@ -22,7 +23,9 @@ class EventsActivity : AppCompatActivity() {
                 with(recyclerBooks){
                     layoutManager = LinearLayoutManager(this@EventsActivity, RecyclerView.VERTICAL, false)
                     setHasFixedSize(true)
-                    adapter = EventsAdapter(events)
+                    adapter = EventsAdapter(events) { event ->  
+                            EventDetailsActivity.getStartIntent(this@EventsActivity, event.title, event.description)
+                    }
                 }
             }
         })
