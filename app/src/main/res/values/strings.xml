@@ -20,5 +20,6 @@
     <!-- EventDetailsActivity -->
     <string name="check_in_sent_message">Check-in realizado com sucesso.</string>
     <string name="check_in_error_message">Erro ao efetuar o envio.</string>
+    <string name="check_email_error_message">E-mail digitado incorretamente.</string>
 
 </resources>

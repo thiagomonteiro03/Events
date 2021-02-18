@@ -1,6 +1,7 @@
 package com.example.events.data.API.GET
 
 
+import android.util.Patterns
 import java.sql.Date
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -23,6 +24,10 @@ object FormatData {
         credits = credits.replace(".", ",")
 
         return credits
+    }
+
+    fun validateEmailFormat(email: String): Boolean {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
 
 }

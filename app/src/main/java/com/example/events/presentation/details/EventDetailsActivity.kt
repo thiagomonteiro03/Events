@@ -2,9 +2,11 @@ package com.example.events.presentation.details
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.WindowManager
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -34,6 +36,13 @@ class EventDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
         setSupportActionBar(toolbar_layout)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        if (Build.VERSION.SDK_INT >= 21) {
+            val window = this.window
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.statusBarColor = this.resources.getColor(R.color.teal_700)
+        }
+
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -48,12 +57,14 @@ class EventDetailsActivity : AppCompatActivity(), OnMapReadyCallback {
                 email = email_send.text.toString())
 
             sendService.addUser(userInfo) {
-                if (it?.eventId != null) {
+                if (it?.eventId != null&&FormatData.validateEmailFormat(email_send.text.toString())) {
                     Toast.makeText(this, R.string.check_in_sent_message,Toast.LENGTH_SHORT).show()
                     bottomSheetBehavior.isHideable = true
                     bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
                 } else {
-                    Toast.makeText(this, R.string.check_in_error_message,Toast.LENGTH_SHORT).show()
+                    if (FormatData.validateEmailFormat(email_send.text.toString())){
+                    Toast.makeText(this, R.string.check_in_error_message,Toast.LENGTH_SHORT).show()}
+                    else Toast.makeText(this, R.string.check_email_error_message,Toast.LENGTH_SHORT).show()
                 }
             }
         }
