@@ -19,6 +19,11 @@ Um projeto de teste criado por mim no prazo de 5 dias, utilizando a [API REST de
 https://github.com/thiagomonteiro03/Events
 ```
 
+## Arquitetura
+Aplicativo desenvolvido com base na arquitetura MVVM que é recomendada pela maioria dos desenvolvedores android.
+
+![dsd](images/architecture.png)
+
 
 ## Frameworks e tecnologias utilizadas
 - [Coroutines](https://developer.android.com/courses/pathways/android-coroutines)
