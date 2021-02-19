@@ -22,7 +22,7 @@ https://github.com/thiagomonteiro03/Events
 ## Arquitetura
 Aplicativo desenvolvido com base na arquitetura MVVM que é recomendada pela maioria dos desenvolvedores android.
 
-![dsd](images/architecture.png)
+![1_5kNXJ7aFSGJvuh4r4egpTg](https://user-images.githubusercontent.com/60589333/108504293-69c24e00-7294-11eb-98e4-d956527b89e7.png)
 
 
 ## Frameworks e tecnologias utilizadas
